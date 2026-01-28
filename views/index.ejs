@@ -1,0 +1,130 @@
+<!-- Hero Section (Jumbotron Style) -->
+<div class="hero-section text-center">
+    <h1 class="display-3 fw-bold mb-3">
+        <i class="bi bi-book-half"></i> Welcome to Bookong
+    </h1>
+    <p class="lead fs-4 mb-4">Your Modern School Library Management System</p>
+    <p class="mb-4">Effortlessly manage your book collection, generate QR codes, and import from Excel</p>
+    <div class="d-flex gap-3 justify-content-center">
+        <% if (typeof user !== 'undefined' && user) { %>
+        <a href="/dashboard" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-speedometer2"></i> Go to Dashboard
+        </a>
+        <a href="/books" class="btn btn-outline-light btn-lg px-5">
+            <i class="bi bi-book"></i> Browse Books
+        </a>
+        <% } else { %>
+        <a href="/auth/login" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-box-arrow-in-right"></i> Login to Get Started
+        </a>
+        <a href="/books" class="btn btn-outline-light btn-lg px-5">
+            <i class="bi bi-book"></i> Browse Books
+        </a>
+        <% } %>
+    </div>
+</div>
+
+<!-- Features Section with Cards -->
+<h2 class="text-center mb-4 fw-bold">
+    <i class="bi bi-stars"></i> Key Features
+</h2>
+
+<div class="row g-4 mb-5">
+    <!-- Feature 1: Manage Books -->
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-primary">
+                    <i class="bi bi-book-fill"></i>
+                </div>
+                <h4 class="card-title fw-bold mb-3">Manage Books</h4>
+                <p class="card-text text-muted">
+                    Add, edit, search, and organize your entire library collection with an intuitive interface. 
+                    Track book availability and warehouse locations in real-time.
+                </p>
+                <a href="/books" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-right"></i> View Books
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 2: QR Codes -->
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-success">
+                    <i class="bi bi-qr-code"></i>
+                </div>
+                <h4 class="card-title fw-bold mb-3">QR Code Generation</h4>
+                <p class="card-text text-muted">
+                    Automatically generate unique QR codes for every book. 
+                    Perfect for quick scanning, inventory checks, and mobile access.
+                </p>
+                <a href="/books" class="btn btn-outline-success">
+                    <i class="bi bi-arrow-right"></i> Try It Out
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 3: Excel Import -->
+    <div class="col-md-4">
+        <div class="card feature-card shadow-sm border-0">
+            <div class="card-body text-center p-4">
+                <div class="feature-icon text-info">
+                    <i class="bi bi-file-earmark-excel-fill"></i>
+                </div>
+                <h4 class="card-title fw-bold mb-3">Excel Import</h4>
+                <p class="card-text text-muted">
+                    Bulk import hundreds of books at once from Excel spreadsheets. 
+                    Save time with automated data validation and error reporting.
+                </p>
+                <a href="/books/import" class="btn btn-outline-info">
+                    <i class="bi bi-arrow-right"></i> Import Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Section -->
+<div class="row g-4 mb-5">
+    <div class="col-md-3">
+        <div class="card text-center bg-primary text-white">
+            <div class="card-body">
+                <i class="bi bi-book display-4"></i>
+                <h3 class="mt-3 mb-0">Fast</h3>
+                <p class="mb-0">Lightning Speed</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center bg-success text-white">
+            <div class="card-body">
+                <i class="bi bi-shield-check display-4"></i>
+                <h3 class="mt-3 mb-0">Secure</h3>
+                <p class="mb-0">Data Protected</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center bg-info text-white">
+            <div class="card-body">
+                <i class="bi bi-phone display-4"></i>
+                <h3 class="mt-3 mb-0">Responsive</h3>
+                <p class="mb-0">Works Anywhere</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-center bg-warning text-dark">
+            <div class="card-body">
+                <i class="bi bi-lightning display-4"></i>
+                <h3 class="mt-3 mb-0">Modern</h3>
+                <p class="mb-0">Latest Tech</p>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,74 @@
+<%- include('../layout', { body: `
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="bi bi-plus-circle"></i> Add New Book
+                </h4>
+            </div>
+            <div class="card-body">
+                ${typeof error !== 'undefined' && error ? `
+                <div class="alert alert-danger" role="alert">
+                    ${error}
+                </div>
+                ` : ''}
+
+                <form action="/books/add" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">
+                            Title <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="title" name="title" 
+                               placeholder="Enter book title" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="author" class="form-label">
+                            Author <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="author" name="author" 
+                               placeholder="Enter author name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="text" class="form-control" id="isbn" name="isbn" 
+                               placeholder="Enter ISBN (optional)">
+                        <small class="form-text text-muted">Format: 10 or 13 digits</small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="warehouseId" class="form-label">
+                            Warehouse <span class="text-danger">*</span>
+                        </label>
+                        <select class="form-select" id="warehouseId" name="warehouseId" required>
+                            <option value="">Select a warehouse...</option>
+                            ${typeof warehouses !== 'undefined' ? warehouses.map(w => `
+                                <option value="${w.id}">${w.name} - ${w.location}</option>
+                            `).join('') : ''}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="isAvailable" class="form-label">Availability</label>
+                        <select class="form-select" id="isAvailable" name="isAvailable">
+                            <option value="true" selected>Available</option>
+                            <option value="false">Not Available</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Add Book
+                        </button>
+                        <a href="/books" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+` }) %>

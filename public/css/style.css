@@ -1,0 +1,58 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.jumbotron {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.jumbotron hr {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card {
+    transition: transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.table-responsive {
+    max-height: 400px;
+}
+
+/* Dashboard specific styles */
+.bg-primary.bg-opacity-75 {
+    background-color: rgba(13, 110, 253, 0.75) !important;
+}
+
+.bg-success.bg-opacity-75 {
+    background-color: rgba(25, 135, 84, 0.75) !important;
+}
+
+.bg-warning.bg-opacity-75 {
+    background-color: rgba(255, 193, 7, 0.75) !important;
+}
+
+.bg-info.bg-opacity-75 {
+    background-color: rgba(13, 202, 240, 0.75) !important;
+}

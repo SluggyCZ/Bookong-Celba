@@ -1,0 +1,69 @@
+<%- include('../layout', { body: `
+<div class="row mb-4">
+    <div class="col-md-6">
+        <h1><i class="bi bi-book"></i> Books</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        ${typeof user !== 'undefined' && user ? `
+        <a href="/books/add" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add Book
+        </a>
+        <a href="/books/import" class="btn btn-success">
+            <i class="bi bi-file-earmark-excel"></i> Import Excel
+        </a>
+        ` : ''}
+    </div>
+</div>
+
+${typeof books !== 'undefined' && books.length > 0 ? `
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Warehouse</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${books.map(book => `
+                    <tr>
+                        <td><code>${book.id}</code></td>
+                        <td><strong>${book.title}</strong></td>
+                        <td>${book.author}</td>
+                        <td>${book.isbn || '<span class="text-muted">N/A</span>'}</td>
+                        <td>
+                            ${book.warehouse ? `
+                                <i class="bi bi-building"></i> ${book.warehouse.name}
+                            ` : '<span class="text-muted">N/A</span>'}
+                        </td>
+                        <td>
+                            ${book.isAvailable ? 
+                                '<span class="badge bg-success">Available</span>' : 
+                                '<span class="badge bg-warning">Borrowed</span>'}
+                        </td>
+                        <td>
+                            <a href="/books/${book.id}" class="btn btn-sm btn-info">
+                                <i class="bi bi-eye"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+` : `
+<div class="alert alert-info">
+    <h5><i class="bi bi-info-circle"></i> No books found</h5>
+    <p class="mb-0">Get started by adding your first book or importing from Excel.</p>
+</div>
+`}
+` }) %>
